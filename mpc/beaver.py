@@ -19,7 +19,7 @@ def triple_from_seed(seed: int) -> BeaverTriple:
     return BeaverTriple(a, b)
 
 def secure_mul(x1, x2, y1, y2, T: BeaverTriple):
-    # Given shares x=(x1,x2), y=(y1,y2) and Beaver triple T=(a,b,c), compute shares of z=x*y.
+    # Given shares x = (x1,x2) and y = (y1, y2), and Beaver triple T = (a,b,c), compute the shares of z = x * y.
     d = sub(add(x1, x2), T.a)  # open d = x - a
     e = sub(add(y1, y2), T.b)  # open e = y - b
     z = add(T.c, add(mul(d, T.b), add(mul(e, T.a), mul(d, e))))
